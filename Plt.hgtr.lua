@@ -541,3 +541,6 @@ print("✨ BY ROBANIK - PREMIUM EDITION")
 print("✅ Успешно загружено!")
 print("🎮 ПКМ на кнопке - настройки")
 print("═══════════════════════════════════")
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Robanik/Stl.brain.plat/refs/heads/main/Anti.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Robanik/Stl.brain.plat/refs/heads/main/Anti2.lua"))()
