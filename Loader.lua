@@ -482,7 +482,7 @@ submitButton.MouseButton1Click:Connect(function()
         screenGui:Destroy()
         blur:Destroy()
         
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/script.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Robanik/Stl.brain.plat/refs/heads/main/Plt.hgtr.lua"))()
         
     else
         showNotification("❌ Неверный ключ! Получите его в Discord", Color3.fromRGB(240, 71, 71), true)
