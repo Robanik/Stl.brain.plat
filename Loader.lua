@@ -1,6 +1,5 @@
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
-local UserInputService = game:GetService("UserInputService")
 
 local player = Players.LocalPlayer
 
@@ -37,7 +36,7 @@ mainFrame.ClipsDescendants = true
 mainFrame.Parent = screenGui
 
 local mainCorner = Instance.new("UICorner")
-mainCorner.CornerRadius = UDim.new(0, 20)
+mainCorner.CornerRadius = UDim.new(0, 16)
 mainCorner.Parent = mainFrame
 
 local mainStroke = Instance.new("UIStroke")
@@ -47,7 +46,7 @@ mainStroke.Transparency = 0.5
 mainStroke.Parent = mainFrame
 
 local glowEffect = Instance.new("ImageLabel")
-glowEffect.Size = UDim2.new(1, 60, 1, 60)
+glowEffect.Size = UDim2.new(1, 50, 1, 50)
 glowEffect.Position = UDim2.new(0.5, 0, 0.5, 0)
 glowEffect.AnchorPoint = Vector2.new(0.5, 0.5)
 glowEffect.BackgroundTransparency = 1
@@ -73,12 +72,12 @@ particlesFrame.BackgroundTransparency = 1
 particlesFrame.ClipsDescendants = true
 particlesFrame.Parent = mainFrame
 
-for i = 1, 15 do
+for i = 1, 10 do
     local particle = Instance.new("Frame")
-    particle.Size = UDim2.new(0, math.random(2, 4), 0, math.random(2, 4))
+    particle.Size = UDim2.new(0, 2, 0, 2)
     particle.Position = UDim2.new(math.random(0, 100) / 100, 0, math.random(0, 100) / 100, 0)
     particle.BackgroundColor3 = Color3.fromRGB(88, 101, 242)
-    particle.BackgroundTransparency = math.random(30, 70) / 100
+    particle.BackgroundTransparency = math.random(40, 80) / 100
     particle.BorderSizePixel = 0
     particle.Parent = particlesFrame
     
@@ -88,20 +87,18 @@ for i = 1, 15 do
     
     spawn(function()
         while particle.Parent do
-            local newPos = UDim2.new(math.random(0, 100) / 100, 0, math.random(0, 100) / 100, 0)
-            local newTrans = math.random(30, 90) / 100
-            TweenService:Create(particle, TweenInfo.new(math.random(3, 6), Enum.EasingStyle.Sine), {
-                Position = newPos,
-                BackgroundTransparency = newTrans
+            TweenService:Create(particle, TweenInfo.new(math.random(4, 7), Enum.EasingStyle.Sine), {
+                Position = UDim2.new(math.random(0, 100) / 100, 0, math.random(0, 100) / 100, 0),
+                BackgroundTransparency = math.random(40, 90) / 100
             }):Play()
-            task.wait(math.random(3, 6))
+            task.wait(math.random(4, 7))
         end
     end)
 end
 
 local logoFrame = Instance.new("Frame")
-logoFrame.Size = UDim2.new(0, 100, 0, 100)
-logoFrame.Position = UDim2.new(0.5, 0, 0, 50)
+logoFrame.Size = UDim2.new(0, 70, 0, 70)
+logoFrame.Position = UDim2.new(0.5, 0, 0, 35)
 logoFrame.AnchorPoint = Vector2.new(0.5, 0)
 logoFrame.BackgroundColor3 = Color3.fromRGB(88, 101, 242)
 logoFrame.BorderSizePixel = 0
@@ -121,7 +118,7 @@ logoGradient.Parent = logoFrame
 
 local logoStroke = Instance.new("UIStroke")
 logoStroke.Color = Color3.fromRGB(114, 137, 218)
-logoStroke.Thickness = 3
+logoStroke.Thickness = 2
 logoStroke.Parent = logoFrame
 
 local logoIcon = Instance.new("TextLabel")
@@ -129,17 +126,17 @@ logoIcon.Size = UDim2.new(1, 0, 1, 0)
 logoIcon.BackgroundTransparency = 1
 logoIcon.Font = Enum.Font.GothamBold
 logoIcon.Text = "🔐"
-logoIcon.TextSize = 50
+logoIcon.TextSize = 36
 logoIcon.TextColor3 = Color3.new(1, 1, 1)
 logoIcon.Parent = logoFrame
 
 local titleLabel = Instance.new("TextLabel")
-titleLabel.Size = UDim2.new(1, -40, 0, 40)
-titleLabel.Position = UDim2.new(0, 20, 0, 170)
+titleLabel.Size = UDim2.new(1, -30, 0, 30)
+titleLabel.Position = UDim2.new(0, 15, 0, 120)
 titleLabel.BackgroundTransparency = 1
 titleLabel.Font = Enum.Font.GothamBold
 titleLabel.Text = "KEY SYSTEM"
-titleLabel.TextSize = 28
+titleLabel.TextSize = 20
 titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 titleLabel.Parent = mainFrame
 
@@ -151,29 +148,28 @@ titleGradient.Color = ColorSequence.new{
 titleGradient.Parent = titleLabel
 
 local subtitleLabel = Instance.new("TextLabel")
-subtitleLabel.Size = UDim2.new(1, -40, 0, 20)
-subtitleLabel.Position = UDim2.new(0, 20, 0, 215)
+subtitleLabel.Size = UDim2.new(1, -30, 0, 16)
+subtitleLabel.Position = UDim2.new(0, 15, 0, 150)
 subtitleLabel.BackgroundTransparency = 1
 subtitleLabel.Font = Enum.Font.Gotham
 subtitleLabel.Text = "BY ROBANIK"
-subtitleLabel.TextSize = 12
+subtitleLabel.TextSize = 10
 subtitleLabel.TextColor3 = Color3.fromRGB(150, 150, 200)
 subtitleLabel.Parent = mainFrame
 
 local infoLabel = Instance.new("TextLabel")
-infoLabel.Size = UDim2.new(1, -40, 0, 35)
-infoLabel.Position = UDim2.new(0, 20, 0, 245)
+infoLabel.Size = UDim2.new(1, -30, 0, 28)
+infoLabel.Position = UDim2.new(0, 15, 0, 175)
 infoLabel.BackgroundTransparency = 1
 infoLabel.Font = Enum.Font.Gotham
-infoLabel.Text = "Присоединись к Discord серверу\nчтобы получить ключ!"
-infoLabel.TextSize = 11
+infoLabel.Text = "Получи ключ в Discord!"
+infoLabel.TextSize = 10
 infoLabel.TextColor3 = Color3.fromRGB(180, 180, 200)
-infoLabel.TextWrapped = true
 infoLabel.Parent = mainFrame
 
 local discordButton = Instance.new("TextButton")
-discordButton.Size = UDim2.new(1, -60, 0, 55)
-discordButton.Position = UDim2.new(0, 30, 0, 295)
+discordButton.Size = UDim2.new(1, -40, 0, 42)
+discordButton.Position = UDim2.new(0, 20, 0, 215)
 discordButton.BackgroundColor3 = Color3.fromRGB(88, 101, 242)
 discordButton.BorderSizePixel = 0
 discordButton.Font = Enum.Font.GothamBold
@@ -182,7 +178,7 @@ discordButton.AutoButtonColor = false
 discordButton.Parent = mainFrame
 
 local discordCorner = Instance.new("UICorner")
-discordCorner.CornerRadius = UDim.new(0, 12)
+discordCorner.CornerRadius = UDim.new(0, 10)
 discordCorner.Parent = discordButton
 
 local discordGradient = Instance.new("UIGradient")
@@ -194,29 +190,29 @@ discordGradient.Rotation = 90
 discordGradient.Parent = discordButton
 
 local discordIcon = Instance.new("TextLabel")
-discordIcon.Size = UDim2.new(0, 40, 1, 0)
-discordIcon.Position = UDim2.new(0, 10, 0, 0)
+discordIcon.Size = UDim2.new(0, 30, 1, 0)
+discordIcon.Position = UDim2.new(0, 8, 0, 0)
 discordIcon.BackgroundTransparency = 1
 discordIcon.Font = Enum.Font.GothamBold
 discordIcon.Text = "💬"
-discordIcon.TextSize = 24
+discordIcon.TextSize = 18
 discordIcon.TextColor3 = Color3.new(1, 1, 1)
 discordIcon.Parent = discordButton
 
 local discordText = Instance.new("TextLabel")
-discordText.Size = UDim2.new(1, -60, 1, 0)
-discordText.Position = UDim2.new(0, 50, 0, 0)
+discordText.Size = UDim2.new(1, -50, 1, 0)
+discordText.Position = UDim2.new(0, 38, 0, 0)
 discordText.BackgroundTransparency = 1
 discordText.Font = Enum.Font.GothamBold
-discordText.Text = "ПОЛУЧИТЬ КЛЮЧ В DISCORD"
-discordText.TextSize = 14
+discordText.Text = "ПОЛУЧИТЬ КЛЮЧ"
+discordText.TextSize = 12
 discordText.TextColor3 = Color3.new(1, 1, 1)
 discordText.TextXAlignment = Enum.TextXAlignment.Left
 discordText.Parent = discordButton
 
 local divider = Instance.new("Frame")
-divider.Size = UDim2.new(1, -60, 0, 2)
-divider.Position = UDim2.new(0, 30, 0, 370)
+divider.Size = UDim2.new(1, -40, 0, 2)
+divider.Position = UDim2.new(0, 20, 0, 275)
 divider.BackgroundColor3 = Color3.fromRGB(60, 60, 80)
 divider.BorderSizePixel = 0
 divider.Parent = mainFrame
@@ -230,14 +226,14 @@ dividerGradient.Color = ColorSequence.new{
 dividerGradient.Parent = divider
 
 local inputFrame = Instance.new("Frame")
-inputFrame.Size = UDim2.new(1, -60, 0, 55)
-inputFrame.Position = UDim2.new(0, 30, 0, 390)
+inputFrame.Size = UDim2.new(1, -40, 0, 42)
+inputFrame.Position = UDim2.new(0, 20, 0, 290)
 inputFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 40)
 inputFrame.BorderSizePixel = 0
 inputFrame.Parent = mainFrame
 
 local inputCorner = Instance.new("UICorner")
-inputCorner.CornerRadius = UDim.new(0, 12)
+inputCorner.CornerRadius = UDim.new(0, 10)
 inputCorner.Parent = inputFrame
 
 local inputStroke = Instance.new("UIStroke")
@@ -246,32 +242,32 @@ inputStroke.Thickness = 2
 inputStroke.Parent = inputFrame
 
 local inputIcon = Instance.new("TextLabel")
-inputIcon.Size = UDim2.new(0, 40, 1, 0)
+inputIcon.Size = UDim2.new(0, 30, 1, 0)
 inputIcon.Position = UDim2.new(0, 5, 0, 0)
 inputIcon.BackgroundTransparency = 1
 inputIcon.Font = Enum.Font.GothamBold
 inputIcon.Text = "🔑"
-inputIcon.TextSize = 20
+inputIcon.TextSize = 16
 inputIcon.TextColor3 = Color3.fromRGB(150, 150, 170)
 inputIcon.Parent = inputFrame
 
 local inputBox = Instance.new("TextBox")
-inputBox.Size = UDim2.new(1, -55, 1, -10)
-inputBox.Position = UDim2.new(0, 45, 0, 5)
+inputBox.Size = UDim2.new(1, -45, 1, -8)
+inputBox.Position = UDim2.new(0, 35, 0, 4)
 inputBox.BackgroundTransparency = 1
 inputBox.Font = Enum.Font.GothamBold
 inputBox.PlaceholderText = "Введите ключ..."
 inputBox.PlaceholderColor3 = Color3.fromRGB(100, 100, 120)
 inputBox.Text = ""
-inputBox.TextSize = 16
+inputBox.TextSize = 13
 inputBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 inputBox.TextXAlignment = Enum.TextXAlignment.Left
 inputBox.ClearTextOnFocus = false
 inputBox.Parent = inputFrame
 
 local submitButton = Instance.new("TextButton")
-submitButton.Size = UDim2.new(1, -60, 0, 55)
-submitButton.Position = UDim2.new(0, 30, 0, 465)
+submitButton.Size = UDim2.new(1, -40, 0, 42)
+submitButton.Position = UDim2.new(0, 20, 0, 350)
 submitButton.BackgroundColor3 = Color3.fromRGB(67, 181, 129)
 submitButton.BorderSizePixel = 0
 submitButton.Font = Enum.Font.GothamBold
@@ -280,7 +276,7 @@ submitButton.AutoButtonColor = false
 submitButton.Parent = mainFrame
 
 local submitCorner = Instance.new("UICorner")
-submitCorner.CornerRadius = UDim.new(0, 12)
+submitCorner.CornerRadius = UDim.new(0, 10)
 submitCorner.Parent = submitButton
 
 local submitGradient = Instance.new("UIGradient")
@@ -292,39 +288,39 @@ submitGradient.Rotation = 90
 submitGradient.Parent = submitButton
 
 local submitIcon = Instance.new("TextLabel")
-submitIcon.Size = UDim2.new(0, 40, 1, 0)
-submitIcon.Position = UDim2.new(0, 10, 0, 0)
+submitIcon.Size = UDim2.new(0, 30, 1, 0)
+submitIcon.Position = UDim2.new(0, 8, 0, 0)
 submitIcon.BackgroundTransparency = 1
 submitIcon.Font = Enum.Font.GothamBold
 submitIcon.Text = "✓"
-submitIcon.TextSize = 24
+submitIcon.TextSize = 18
 submitIcon.TextColor3 = Color3.new(1, 1, 1)
 submitIcon.Parent = submitButton
 
 local submitText = Instance.new("TextLabel")
-submitText.Size = UDim2.new(1, -60, 1, 0)
-submitText.Position = UDim2.new(0, 50, 0, 0)
+submitText.Size = UDim2.new(1, -50, 1, 0)
+submitText.Position = UDim2.new(0, 38, 0, 0)
 submitText.BackgroundTransparency = 1
 submitText.Font = Enum.Font.GothamBold
-submitText.Text = "АКТИВИРОВАТЬ СКРИПТ"
-submitText.TextSize = 14
+submitText.Text = "АКТИВИРОВАТЬ"
+submitText.TextSize = 12
 submitText.TextColor3 = Color3.new(1, 1, 1)
 submitText.TextXAlignment = Enum.TextXAlignment.Left
 submitText.Parent = submitButton
 
 local statusLabel = Instance.new("TextLabel")
-statusLabel.Size = UDim2.new(1, -40, 0, 25)
-statusLabel.Position = UDim2.new(0, 20, 0, 535)
+statusLabel.Size = UDim2.new(1, -30, 0, 20)
+statusLabel.Position = UDim2.new(0, 15, 0, 405)
 statusLabel.BackgroundTransparency = 1
 statusLabel.Font = Enum.Font.Gotham
 statusLabel.Text = ""
-statusLabel.TextSize = 12
+statusLabel.TextSize = 10
 statusLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
 statusLabel.TextTransparency = 1
 statusLabel.Parent = mainFrame
 
-TweenService:Create(mainFrame, TweenInfo.new(0.6, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {
-    Size = UDim2.new(0, 420, 0, 580)
+TweenService:Create(mainFrame, TweenInfo.new(0.5, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {
+    Size = UDim2.new(0, 320, 0, 440)
 }):Play()
 
 spawn(function()
@@ -355,49 +351,33 @@ local function showNotification(text, color, isError)
     }):Play()
     
     if isError then
-        TweenService:Create(inputFrame, TweenInfo.new(0.05), {Position = UDim2.new(0, 25, 0, 390)}):Play()
-        task.wait(0.05)
-        TweenService:Create(inputFrame, TweenInfo.new(0.05), {Position = UDim2.new(0, 35, 0, 390)}):Play()
-        task.wait(0.05)
-        TweenService:Create(inputFrame, TweenInfo.new(0.05), {Position = UDim2.new(0, 25, 0, 390)}):Play()
-        task.wait(0.05)
-        TweenService:Create(inputFrame, TweenInfo.new(0.05), {Position = UDim2.new(0, 35, 0, 390)}):Play()
-        task.wait(0.05)
-        TweenService:Create(inputFrame, TweenInfo.new(0.1), {Position = UDim2.new(0, 30, 0, 390)}):Play()
+        for i = 1, 4 do
+            TweenService:Create(inputFrame, TweenInfo.new(0.05), {Position = UDim2.new(0, 15, 0, 290)}):Play()
+            task.wait(0.05)
+            TweenService:Create(inputFrame, TweenInfo.new(0.05), {Position = UDim2.new(0, 25, 0, 290)}):Play()
+            task.wait(0.05)
+        end
+        TweenService:Create(inputFrame, TweenInfo.new(0.1), {Position = UDim2.new(0, 20, 0, 290)}):Play()
     end
     
     task.wait(3)
-    TweenService:Create(statusLabel, TweenInfo.new(0.5), {
-        TextTransparency = 1
-    }):Play()
+    TweenService:Create(statusLabel, TweenInfo.new(0.5), {TextTransparency = 1}):Play()
 end
 
 discordButton.MouseEnter:Connect(function()
-    TweenService:Create(discordButton, TweenInfo.new(0.2), {
-        Size = UDim2.new(1, -50, 0, 60),
-        BackgroundColor3 = Color3.fromRGB(114, 137, 218)
-    }):Play()
+    TweenService:Create(discordButton, TweenInfo.new(0.2), {Size = UDim2.new(1, -35, 0, 46)}):Play()
 end)
 
 discordButton.MouseLeave:Connect(function()
-    TweenService:Create(discordButton, TweenInfo.new(0.2), {
-        Size = UDim2.new(1, -60, 0, 55),
-        BackgroundColor3 = Color3.fromRGB(88, 101, 242)
-    }):Play()
+    TweenService:Create(discordButton, TweenInfo.new(0.2), {Size = UDim2.new(1, -40, 0, 42)}):Play()
 end)
 
 submitButton.MouseEnter:Connect(function()
-    TweenService:Create(submitButton, TweenInfo.new(0.2), {
-        Size = UDim2.new(1, -50, 0, 60),
-        BackgroundColor3 = Color3.fromRGB(87, 201, 149)
-    }):Play()
+    TweenService:Create(submitButton, TweenInfo.new(0.2), {Size = UDim2.new(1, -35, 0, 46)}):Play()
 end)
 
 submitButton.MouseLeave:Connect(function()
-    TweenService:Create(submitButton, TweenInfo.new(0.2), {
-        Size = UDim2.new(1, -60, 0, 55),
-        BackgroundColor3 = Color3.fromRGB(67, 181, 129)
-    }):Play()
+    TweenService:Create(submitButton, TweenInfo.new(0.2), {Size = UDim2.new(1, -40, 0, 42)}):Play()
 end)
 
 inputBox.Focused:Connect(function()
@@ -415,34 +395,36 @@ inputBox.FocusLost:Connect(function()
 end)
 
 discordButton.MouseButton1Click:Connect(function()
-    TweenService:Create(discordButton, TweenInfo.new(0.1), {Size = UDim2.new(1, -70, 0, 50)}):Play()
+    TweenService:Create(discordButton, TweenInfo.new(0.1), {Size = UDim2.new(1, -50, 0, 38)}):Play()
     task.wait(0.1)
-    TweenService:Create(discordButton, TweenInfo.new(0.2, Enum.EasingStyle.Back), {Size = UDim2.new(1, -60, 0, 55)}):Play()
+    TweenService:Create(discordButton, TweenInfo.new(0.2, Enum.EasingStyle.Back), {Size = UDim2.new(1, -40, 0, 42)}):Play()
     
-    showNotification("📋 Ссылка на Discord скопирована!", Color3.fromRGB(88, 101, 242), false)
+    showNotification("📋 Ссылка Discord скопирована!", Color3.fromRGB(88, 101, 242), false)
     
     setclipboard(DISCORD_LINK)
     
     if request then
-        request({
-            Url = "http://127.0.0.1:6463/rpc?v=1",
-            Method = "POST",
-            Headers = {
-                ["Content-Type"] = "application/json",
-                ["Origin"] = "https://discord.com"
-            },
-            Body = game:GetService("HttpService"):JSONEncode({
-                cmd = "INVITE_BROWSER",
-                args = {code = DISCORD_LINK:match("discord%.gg/(.+)")}
+        pcall(function()
+            request({
+                Url = "http://127.0.0.1:6463/rpc?v=1",
+                Method = "POST",
+                Headers = {
+                    ["Content-Type"] = "application/json",
+                    ["Origin"] = "https://discord.com"
+                },
+                Body = game:GetService("HttpService"):JSONEncode({
+                    cmd = "INVITE_BROWSER",
+                    args = {code = "g4FG4fsY9R"}
+                })
             })
-        })
+        end)
     end
 end)
 
 submitButton.MouseButton1Click:Connect(function()
-    TweenService:Create(submitButton, TweenInfo.new(0.1), {Size = UDim2.new(1, -70, 0, 50)}):Play()
+    TweenService:Create(submitButton, TweenInfo.new(0.1), {Size = UDim2.new(1, -50, 0, 38)}):Play()
     task.wait(0.1)
-    TweenService:Create(submitButton, TweenInfo.new(0.2, Enum.EasingStyle.Back), {Size = UDim2.new(1, -60, 0, 55)}):Play()
+    TweenService:Create(submitButton, TweenInfo.new(0.2, Enum.EasingStyle.Back), {Size = UDim2.new(1, -40, 0, 42)}):Play()
     
     local inputKey = inputBox.Text
     
@@ -452,39 +434,36 @@ submitButton.MouseButton1Click:Connect(function()
     end
     
     if inputKey == CORRECT_KEY then
-        showNotification("✓ Ключ верный! Загрузка скрипта...", Color3.fromRGB(67, 181, 129), false)
+        showNotification("✓ Ключ верный! Загрузка...", Color3.fromRGB(67, 181, 129), false)
         
-        submitButton.BackgroundColor3 = Color3.fromRGB(67, 181, 129)
         submitText.Text = "ЗАГРУЗКА..."
         submitIcon.Text = "⏳"
         
         local loadingBar = Instance.new("Frame")
-        loadingBar.Size = UDim2.new(0, 0, 0, 4)
-        loadingBar.Position = UDim2.new(0, 0, 1, -4)
+        loadingBar.Size = UDim2.new(0, 0, 0, 3)
+        loadingBar.Position = UDim2.new(0, 0, 1, -3)
         loadingBar.BackgroundColor3 = Color3.fromRGB(87, 201, 149)
         loadingBar.BorderSizePixel = 0
         loadingBar.Parent = submitButton
         
-        TweenService:Create(loadingBar, TweenInfo.new(1.5), {
-            Size = UDim2.new(1, 0, 0, 4)
-        }):Play()
+        TweenService:Create(loadingBar, TweenInfo.new(1.2), {Size = UDim2.new(1, 0, 0, 3)}):Play()
         
-        task.wait(1.5)
+        task.wait(1.2)
         
-        TweenService:Create(mainFrame, TweenInfo.new(0.5, Enum.EasingStyle.Back, Enum.EasingDirection.In), {
+        TweenService:Create(mainFrame, TweenInfo.new(0.4, Enum.EasingStyle.Back, Enum.EasingDirection.In), {
             Size = UDim2.new(0, 0, 0, 0),
             Rotation = 180
         }):Play()
         
-        TweenService:Create(blur, TweenInfo.new(0.5), {Size = 0}):Play()
+        TweenService:Create(blur, TweenInfo.new(0.4), {Size = 0}):Play()
         
-        task.wait(0.5)
+        task.wait(0.4)
         screenGui:Destroy()
         blur:Destroy()
         
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Robanik/Stl.brain.plat/refs/heads/main/Plt.hgtr.lua"))()
         
     else
-        showNotification("❌ Неверный ключ! Получите его в Discord", Color3.fromRGB(240, 71, 71), true)
+        showNotification("❌ Неверный ключ! Получи в Discord", Color3.fromRGB(240, 71, 71), true)
     end
 end)
