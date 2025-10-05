@@ -4,8 +4,8 @@ local UserInputService = game:GetService("UserInputService")
 
 local player = Players.LocalPlayer
 
-local DISCORD_LINK = "https://discord.gg/YOUR_INVITE_CODE"
-local CORRECT_KEY = "ROBANIK2024"
+local DISCORD_LINK = "https://discord.gg/g4FG4fsY9R"
+local CORRECT_KEY = "STL22PR132"
 
 local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "KeySystemGUI"
