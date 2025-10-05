@@ -371,7 +371,7 @@ submitButton.MouseButton1Click:Connect(function()
         screenGui:Destroy()
         blur:Destroy()
         
-        loadstring(game:HttpGet("https://pastebin.com/raw/YOURSCRIPT"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Robanik/Stl.brain.plat/refs/heads/main/Plt.hgtr.lua"))()
         
     else
         showNotification("❌ Неверный ключ!", Color3.fromRGB(255, 100, 100), true)
